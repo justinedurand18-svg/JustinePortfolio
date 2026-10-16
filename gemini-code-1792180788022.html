@@ -1,0 +1,1202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Justine Durand — Industrial Engineering & Quality Assurance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <style>
+    :root {
+      --paper: #F8FAFC;
+      --navy: #142D43;
+      --petrol: #24566B;
+      --slate: #506579;
+      --line: #D9E3E9;
+      --soft: #EDF3F6;
+      --white: #ffffff;
+      --edu-color: #2563EB;
+      --work-color: #0D9488;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body { margin: 0; width: 100%; font-family: 'Inter', sans-serif; color: var(--navy); background: var(--paper); }
+    
+    .shell { width: min(100% - 48px, 1160px); margin-inline: auto; }
+    .site-header { background: rgba(248, 250, 252, 0.97); border-bottom: 1px solid var(--line); backdrop-filter: blur(14px); }
+    .brand { font-size: 21px; font-weight: 800; letter-spacing: -.055em; color: var(--navy); text-decoration: none; }
+    .nav-link { font-size: 14px; font-weight: 600; color: var(--slate); text-decoration: none; transition: color .2s; }
+    .nav-link:hover { color: var(--petrol); }
+    
+    .section { padding: 90px 0; }
+    .rule { border-top: 1px solid var(--line); }
+    .eyebrow { font-size: 11px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--petrol); }
+    .section-title { font-size: clamp(32px, 4vw, 48px); line-height: 1.1; letter-spacing: -.04em; font-weight: 700; }
+    .body-copy { color: var(--slate); line-height: 1.8; font-size: 16px; }
+    .fine { color: var(--slate); font-size: 13px; line-height: 1.7; }
+    
+    .card { background: var(--white); border: 1px solid var(--line); border-radius: 18px; transition: transform .25s, border-color .25s, box-shadow .25s; }
+    .card:hover { transform: translateY(-4px); border-color: #A8BEC9; box-shadow: 0 18px 45px rgba(20, 45, 67, .07); }
+    
+    .action { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border-radius: 8px; padding: 12px 20px; font-size: 14px; font-weight: 700; text-decoration: none; cursor: pointer; transition: all .2s; }
+    .action-dark { background: var(--navy); border: 1px solid var(--navy); color: white; }
+    .action-dark:hover { background: var(--petrol); border-color: var(--petrol); }
+    .action-light { background: transparent; border: 1px solid #AFC1CB; color: var(--navy); }
+    .action-light:hover { background: var(--soft); border-color: var(--petrol); }
+
+    .tag { display: inline-block; background: var(--soft); border: 1px solid var(--line); border-radius: 6px; padding: 6px 12px; color: var(--petrol); font-size: 12px; font-weight: 600; }
+    .field { width: 100%; border: 1px solid #B8CBD5; border-radius: 8px; padding: 12px 14px; background: white; color: var(--navy); font-size: 14px; }
+    .field:focus { outline: none; border-color: var(--petrol); box-shadow: 0 0 0 3px rgba(36, 86, 107, 0.15); }
+
+    /* Compact 1-Line Timeline Grid */
+    .timeline-single-line { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; position: relative; }
+    .timeline-mini-card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 12px 10px; display: flex; flex-direction: column; justify-content: space-between; height: 100%; min-height: 160px; }
+    .hz-dot { width: 10px; height: 10px; border-radius: 50%; margin-bottom: 8px; border: 2px solid var(--white); box-shadow: 0 0 0 2px var(--line); flex-shrink: 0; }
+    .hz-dot-edu { background-color: var(--edu-color); }
+    .hz-dot-work { background-color: var(--work-color); }
+
+    @media (max-width: 1024px) {
+      .timeline-single-line { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    }
+    @media (max-width: 640px) {
+      .timeline-single-line { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    }
+
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header sticky top-0 z-50 w-full">
+    <div class="shell flex h-[72px] items-center justify-between gap-6">
+      <a href="#home" class="brand">JD<span style="color:var(--petrol)">.</span></a>
+      <nav class="hidden md:flex items-center gap-7">
+        <a class="nav-link" href="#home">Home</a>
+        <a class="nav-link" href="#about">About Me</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#projects">Work Projects</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#education">Education</a>
+        <a class="nav-link" href="#get-to-know-me">Get to Know Me</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+      <button id="menu-toggle" type="button" class="md:hidden action action-light !px-3 !py-2">Menu ☰</button>
+    </div>
+    <nav id="mobile-menu" class="shell pb-4 md:hidden flex flex-col gap-3" hidden>
+      <a class="nav-link" href="#home">Home</a>
+      <a class="nav-link" href="#about">About Me</a>
+      <a class="nav-link" href="#experience">Experience</a>
+      <a class="nav-link" href="#projects">Work Projects</a>
+      <a class="nav-link" href="#skills">Skills</a>
+      <a class="nav-link" href="#education">Education</a>
+      <a class="nav-link" href="#get-to-know-me">Get to Know Me</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="portfolio-view" class="w-full">
+    
+    <!-- Hero / Home -->
+    <section id="home" class="section">
+      <div class="shell grid gap-12 lg:grid-cols-[1.3fr_1fr] items-center">
+        <div>
+          <p class="eyebrow mb-3">Hello, I'm</p>
+          <h1 class="text-5xl lg:text-6xl font-bold tracking-tight mb-4">Justine Durand.</h1>
+          <p class="text-lg font-semibold text-[var(--petrol)] mb-6">Industrial Engineering · Quality Assurance · Data Analytics</p>
+          <p class="body-copy mb-8 max-w-xl">
+            Industrial Engineering Master's student at ESIEE Paris, with professional experience at Disneyland Paris and Walt Disney World. I specialize in turning complex operational data into actionable tools, optimizing workflows, and driving engineering excellence.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#projects" class="action action-dark">View My Work →</a>
+            <a href="#contact" class="action action-light">Contact Me ↗</a>
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <div class="w-[300px] h-[300px] lg:w-[360px] lg:h-[360px] rounded-full overflow-hidden border-2 border-slate-200 shadow-xl">
+            <img src="photo-justine.png" alt="Portrait of Justine Durand" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me & Journey -->
+    <section id="about" class="section rule">
+      <div class="shell space-y-16">
+        <div>
+          <p class="eyebrow mb-3">The Journey Behind My Work</p>
+          <h2 class="section-title mb-8">Who I Am & What Drives Me</h2>
+          
+          <div class="grid gap-8 lg:grid-cols-3 body-copy">
+            <div>
+              <h3 class="font-bold text-lg text-[var(--navy)] mb-3">01 — WHO I AM</h3>
+              <div class="space-y-3">
+                <p>My name is Justine, and I am currently seeking professional opportunities starting from September 2027 upon completion of my Master's degree in Industrial Engineering.</p>
+                <p>Through my academic background and international professional experiences, I have developed a strong focus on problem solving, continuous improvement, and project management.</p>
+                <p>Curious, adaptable, and eager to learn, I enjoy taking on new challenges, exploring different fields, and contributing to meaningful projects in dynamic and innovative environments.</p>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-lg text-[var(--navy)] mb-3">02 — MY DISNEY JOURNEY</h3>
+              <div class="space-y-3">
+                <p>My experience with the Disney company began at Disneyland Paris in 2022, working in frontline park operations. Two years later, I returned to work in operations before securing my apprenticeship as a Supplier Quality Assurance Apprentice Engineer in 2024.</p>
+                <p>In summer 2026, I had the opportunity to continue this journey with a 12-week Quality Assurance internship at Walt Disney World in Florida.</p>
+                <p>These experiences have given me a unique perspective on the engineering, teamwork, and innovation behind Disney's magic.</p>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="font-bold text-lg text-[var(--navy)] mb-3">03 — WHAT DRIVES ME</h3>
+              <div class="space-y-3">
+                <p>I've always been passionate about theme parks, especially Disney, and the incredible creativity, innovation, and engineering that bring immersive experiences to life.</p>
+                <p>What fascinates me most is everything happening behind the scenes: the people, technologies, processes, and attention to detail that make the magic possible.</p>
+                <p>Today, I'm motivated by the opportunity to combine this passion with my interests in Industrial Engineering, Quality Assurance, and Continuous Improvement.</p>
+                <p>For me, engineering is not only about improving systems. It's also about contributing to experiences that people will remember.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single Line Compact Timeline -->
+        <div>
+          <p class="eyebrow mb-1">04 — MY TIMELINE</p>
+          <h3 class="font-bold text-2xl text-[var(--navy)] mb-6">Key Milestones</h3>
+
+          <div class="timeline-single-line">
+            <!-- 1. Bac -->
+            <div class="timeline-mini-card">
+              <div>
+                <div class="hz-dot hz-dot-edu"></div>
+                <span class="text-[11px] font-bold text-slate-400 block mb-1">2022</span>
+                <h4 class="font-bold text-sm text-[var(--navy)] leading-tight mb-1">Baccalauréat</h4>
+                <p class="text-[11px] text-slate-600 leading-snug">Secondary Education Graduation.</p>
+              </div>
+              <span class="text-[10px] font-semibold text-[var(--petrol)] mt-2">Ranked 1st in class</span>
+            </div>
+
+            <!-- 2. Contrat Ops 1 DLP -->
+            <div class="timeline-mini-card">
+              <div>
+                <div class="hz-dot hz-dot-work"></div>
+                <span class="text-[11px] font-bold text-slate-400 block mb-1">Summer 2022</span>
+                <h4 class="font-bold text-sm text-[var(--navy)] leading-tight mb-1">Disneyland Paris</h4>
+                <p class="text-[11px] text-slate-600 leading-snug">Operations seasonal role.</p>
+              </div>
+              <span class="text-[10px] font-semibold text-[var(--petrol)] mt-2">Marne-la-Vallée, FR</span>
+            </div>
+
+            <!-- 3. CPGE -->
+            <div class="timeline-mini-card">
+              <div>
+                <div class="hz-dot hz-dot-edu"></div>
+                <span class="text-[11px] font-bold text-slate-400 block mb-1">2022 – 2024</span>
+                <h4 class="font-bold text-sm text-[var(--navy)] leading-tight mb-1">CPGE</h4>
+                <p class="text-[11px] text-slate-600 leading-snug">Maths, Physics & Engineering.</p>
+              </div>
+              <span class="text-[10px] font-semibold text-[var(--petrol)] mt-2">Le Raincy, FR</span>
+            </div>
+
+            <!-- 4. Contrat Ops 2 DLP -->
+            <div class="timeline-mini-card">
+              <div>
+                <div class="hz-dot hz-dot-work"></div>
+                <span class="text-[11px] font-bold text-slate-400 block mb-1">Summer 2024</span>
+                <h4 class="font-bold text-sm text-[var(--navy)] leading-tight mb-1">Disneyland Paris</h4>
+                <p class="text-[11px] text-slate-600 leading-snug">Operations seasonal role.</p>
+              </div>
+              <span class="text-[10px] font-semibold text-[var(--petrol)] mt-2">Marne-la-Vallée, FR</span>
+            </div>
+
+            <!-- 5. ESIEE Paris -->
+            <div class="timeline-mini-card">
+              <div>
+                <div class="hz-dot hz-dot-edu"></div>
+                <span class="text-[11px] font-bold text-slate-400 block mb-1">2024 – 2027</span>
+                <h4 class="font-bold text-sm text-[var(--navy)] leading-tight mb-1">ESIEE Paris</h4>
+                <p class="text-[11px] text-slate-600 leading-snug">Master's Industrial Engineering.</p>
+              </div>
+              <span class="text-[10px] font-semibold text-[var(--petrol)] mt-2">Noisy-le-Grand, FR</span>
+            </div>
+
+            <!-- 6. Alternance DLP -->
+            <div class="timeline-mini-card">
+              <div>
+                <div class="hz-dot hz-dot-work"></div>
+                <span class="text-[11px] font-bold text-slate-400 block mb-1">2024 – Present</span>
+                <h4 class="font-bold text-sm text-[var(--navy)] leading-tight mb-1">Disneyland Paris</h4>
+                <p class="text-[11px] text-slate-600 leading-snug">Supplier QA Apprentice Engineer.</p>
+              </div>
+              <span class="text-[10px] font-semibold text-[var(--petrol)] mt-2">Serris, FR — Safety</span>
+            </div>
+
+            <!-- 7. Stage WDW -->
+            <div class="timeline-mini-card">
+              <div>
+                <div class="hz-dot hz-dot-work"></div>
+                <span class="text-[11px] font-bold text-slate-400 block mb-1">Jun – Sep 2026</span>
+                <h4 class="font-bold text-sm text-[var(--navy)] leading-tight mb-1">Walt Disney World</h4>
+                <p class="text-[11px] text-slate-600 leading-snug">Quality Assurance Intern.</p>
+              </div>
+              <span class="text-[10px] font-semibold text-[var(--petrol)] mt-2">Orlando, FL — Shops</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Experience -->
+    <section id="experience" class="section rule">
+      <div class="shell">
+        <p class="eyebrow mb-3">02 / Professional Experience</p>
+        <h2 class="section-title mb-10">Where I've worked.</h2>
+        
+        <div class="grid gap-6">
+          <article class="card p-8 grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <p class="font-bold text-lg mb-1">Disneyland Paris</p>
+              <h3 class="font-semibold text-xl text-[var(--petrol)] mb-1">Supplier Quality Assurance Apprentice Engineer</h3>
+              <p class="text-xs font-semibold text-slate-500 mb-3">Serris, France</p>
+              <p class="text-sm text-slate-500 mb-1">September 2024 – September 2027 (Expected)</p>
+            </div>
+            <ul class="list-disc pl-5 space-y-2 body-copy">
+              <li><strong>Data Analytics &amp; Performance Management:</strong> Developed Power BI dashboards to monitor supplier quality, delivery, and purchasing performance, supporting data-driven decision-making.</li>
+              <li><strong>Cross-Functional Collaboration:</strong> Analyzed performance trends and contributed to monthly supplier reviews with Quality, Purchasing, Procurement, and Quality Control teams.</li>
+              <li><strong>Process Improvement &amp; Digitalization:</strong> Designed and automated quality management workflows using Smartsheet, SharePoint, and Power Automate to improve efficiency, traceability, and standardization.</li>
+              <li><strong>Quality Engineering &amp; Problem Solving:</strong> Supported supplier audits, corrective action management, and technical investigations using structured methodologies such as 8D.</li>
+            </ul>
+          </article>
+
+          <article class="card p-8 grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <p class="font-bold text-lg mb-1">Walt Disney World</p>
+              <h3 class="font-semibold text-xl text-[var(--petrol)] mb-1">Quality Assurance Intern — Central Shops</h3>
+              <p class="text-xs font-semibold text-slate-500 mb-3">Orlando, Florida, USA</p>
+              <p class="text-sm text-slate-500 mb-1">June – September 2026</p>
+            </div>
+            <ul class="list-disc pl-5 space-y-2 body-copy">
+              <li><strong>Data Integration &amp; Business Intelligence:</strong> Developed a Power BI reporting solution combining quality inspection, purchasing, and supplier-related data from multiple systems, including WOTS and Maximo.</li>
+              <li><strong>Data Quality &amp; Problem Solving:</strong> Investigated missing identifiers, inconsistent data formats, and data mapping challenges to improve reporting reliability.</li>
+              <li><strong>Performance Monitoring:</strong> Contributed to the development of a supplier performance scorecard approach to support quality analysis and reporting.</li>
+              <li><strong>International Collaboration:</strong> Worked with Quality Assurance and technical teams in a multicultural environment to understand operational needs and explore reporting improvements.</li>
+            </ul>
+          </article>
+
+          <article class="card p-8 grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <p class="font-bold text-lg mb-1">Disneyland Paris</p>
+              <h3 class="font-semibold text-xl text-[var(--petrol)] mb-1">Seasonal Cast Member — Park Operations</h3>
+              <p class="text-xs font-semibold text-slate-500 mb-3">Marne-la-Vallée, France</p>
+              <p class="text-sm text-slate-500 mb-1">Summer 2022 &amp; Summer 2024</p>
+            </div>
+            <ul class="list-disc pl-5 space-y-2 body-copy">
+              <li><strong>Guest Experience:</strong> Contributed to creating a welcoming and memorable environment while maintaining Disney's service and safety standards.</li>
+              <li><strong>Operational Excellence:</strong> Supported daily park operations in a fast-paced environment, following established procedures and adapting to changing priorities.</li>
+              <li><strong>Teamwork &amp; Communication:</strong> Collaborated with multicultural teams and interacted with international guests, strengthening communication, adaptability, and problem-solving skills.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Projects -->
+    <section id="projects" class="section rule">
+      <div class="shell">
+        <p class="eyebrow mb-3">03 / Selected Work</p>
+        <h2 class="section-title mb-10">Featured projects at work.</h2>
+        
+        <div class="grid gap-6 md:grid-cols-2">
+          
+          <!-- Unified Project Card: Supplier Performance & Quality Data Analytics -->
+          <article class="card p-7 flex flex-col justify-between md:col-span-2">
+            <div>
+              <div class="mb-6 rounded-xl overflow-hidden border border-[var(--line)] bg-[var(--soft)]">
+                <img src="dashboardReporting.png" alt="Supplier Performance Analytics & Scorecard" class="w-full h-auto object-cover max-h-[220px]">
+              </div>
+
+              <p class="eyebrow mb-2">Data Analytics & Supplier Performance</p>
+              <h3 class="font-bold text-2xl mb-1 text-[var(--navy)]">Supplier Performance Analytics & Scorecard</h3>
+              <p class="fine mb-6">Disneyland Paris &amp; Walt Disney World</p>
+              
+              <div class="grid gap-6 md:grid-cols-2 mb-2">
+                <!-- Sub-section: Disneyland Paris -->
+                <div class="p-5 bg-[var(--soft)] rounded-xl border border-[var(--line)] flex flex-col justify-between">
+                  <div>
+                    <span class="text-xs font-bold text-[var(--petrol)] uppercase tracking-wider block mb-1">Disneyland Paris</span>
+                    <h4 class="font-bold text-lg text-[var(--navy)] mb-2">Supplier Performance Dashboard</h4>
+                    <p class="body-copy text-sm mb-4">Development of a Power BI dashboard consolidating supplier quality and delivery performance indicators to support supplier evaluation and cross-functional decision-making.</p>
+                  </div>
+                  <div>
+                    <p class="fine mb-4">Power BI · KPI Monitoring · Data Modeling</p>
+                    <button type="button" data-project="1" class="action action-light w-full">View DLP Case Study ↗</button>
+                  </div>
+                </div>
+
+                <!-- Sub-section: Walt Disney World -->
+                <div class="p-5 bg-[var(--soft)] rounded-xl border border-[var(--line)] flex flex-col justify-between">
+                  <div>
+                    <span class="text-xs font-bold text-[var(--petrol)] uppercase tracking-wider block mb-1">Walt Disney World</span>
+                    <h4 class="font-bold text-lg text-[var(--navy)] mb-2">Quality Data Integration & Vendor Scorecard</h4>
+                    <p class="body-copy text-sm mb-4">Integration and analysis of quality inspection and purchasing data from WOTS and Maximo to improve supplier performance visibility.</p>
+                  </div>
+                  <div>
+                    <p class="fine mb-4">Power BI · WOTS · Maximo · Data Cleaning</p>
+                    <button type="button" data-project="2" class="action action-light w-full">View WDW Case Study ↗</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Workflow Automation -->
+          <article class="card p-7 flex flex-col justify-between">
+            <div>
+              <div class="mb-6 rounded-xl overflow-hidden border border-[var(--line)] bg-[var(--soft)]">
+                <img src="Automation.jpeg" alt="Supplier Quality Workflow Automation" class="w-full h-auto object-cover max-h-[160px]">
+              </div>
+              <p class="eyebrow mb-2">Process Improvement & Automation</p>
+              <h3 class="font-bold text-xl mb-1 text-[var(--navy)]">Supplier Quality Workflow Automation</h3>
+              <p class="fine mb-3">Disneyland Paris</p>
+              <p class="body-copy text-sm mb-5">Digitalization and standardization of supplier deviation request management.</p>
+              <p class="fine mb-6">Smartsheet · Power Automate · SharePoint</p>
+            </div>
+            <button type="button" data-project="3" class="action action-light">View Case Study ↗</button>
+          </article>
+
+          <!-- Root Cause Analysis -->
+          <article class="card p-7 flex flex-col justify-between">
+            <div>
+              <div class="mb-6 rounded-xl overflow-hidden border border-[var(--line)] bg-[var(--soft)]">
+                <img src="8D.jpg" alt="Root Cause Analysis & 8D" class="w-full h-auto object-cover max-h-[160px]">
+              </div>
+              <p class="eyebrow mb-2">Quality Engineering</p>
+              <h3 class="font-bold text-xl mb-1 text-[var(--navy)]">Root Cause Analysis & 8D</h3>
+              <p class="fine mb-3">Disneyland Paris</p>
+              <p class="body-copy text-sm mb-5">Participation in a structured technical investigation involving wheel debanding on an attraction system.</p>
+              <p class="fine mb-6">8D · Root Cause Analysis · Technical Investigation</p>
+            </div>
+            <button type="button" data-project="4" class="action action-light">View Case Study ↗</button>
+          </article>
+
+          <!-- Supplier Audit Standardization -->
+          <article class="card p-7 flex flex-col justify-between md:col-span-2">
+            <div>
+              <div class="mb-6 rounded-xl overflow-hidden border border-[var(--line)] bg-[var(--soft)]">
+                <img src="Audit.jpg" alt="Supplier Audit Standardization" class="w-full h-auto object-cover max-h-[220px]">
+              </div>
+              <p class="eyebrow mb-2">Supplier Quality & Auditing</p>
+              <h3 class="font-bold text-xl mb-1 text-[var(--navy)]">Supplier Audit Standardization</h3>
+              <p class="fine mb-3">Disneyland Paris</p>
+              <p class="body-copy text-sm mb-5">Contribution to standardized supplier assessment methods, audit documentation, and corrective action monitoring.</p>
+              <p class="fine mb-6">Audit Methodology · Quality Management · Standardization</p>
+            </div>
+            <button type="button" data-project="5" class="action action-light">View Case Study ↗</button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section rule">
+      <div class="shell">
+        <p class="eyebrow mb-3">04 / Capabilities</p>
+        <h2 class="section-title mb-10">Skills & tools.</h2>
+        
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="card p-6">
+            <h3 class="font-bold text-lg mb-4 text-[var(--navy)]">Data & Analytics</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Power BI</span>
+              <span class="tag">Power Query</span>
+              <span class="tag">Excel</span>
+              <span class="tag">Python</span>
+              <span class="tag">VBA</span>
+              <span class="tag">KPI Development</span>
+              <span class="tag">Data Quality</span>
+            </div>
+          </article>
+
+          <article class="card p-6">
+            <h3 class="font-bold text-lg mb-4 text-[var(--navy)]">Industrial Engineering</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Process Improvement</span>
+              <span class="tag">Lean Management</span>
+              <span class="tag">Standardization</span>
+              <span class="tag">Project Management</span>
+              <span class="tag">Workflow Automation</span>
+            </div>
+          </article>
+
+          <article class="card p-6">
+            <h3 class="font-bold text-lg mb-4 text-[var(--navy)]">Quality Engineering</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Supplier Quality</span>
+              <span class="tag">Supplier Audits</span>
+              <span class="tag">Non-Conformity</span>
+              <span class="tag">8D Problem Solving</span>
+              <span class="tag">Metrology</span>
+              <span class="tag">Quality Standards</span>
+            </div>
+          </article>
+
+          <article class="card p-6">
+            <h3 class="font-bold text-lg mb-4 text-[var(--navy)]">Tools & Soft Skills</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Smartsheet</span>
+              <span class="tag">Power Automate</span>
+              <span class="tag">SharePoint</span>
+              <span class="tag">Cross-functional</span>
+              <span class="tag">Adaptability</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section id="education" class="section rule">
+      <div class="shell">
+        <p class="eyebrow mb-3">05 / EDUCATION</p>
+        <h2 class="section-title mb-10">Academic path.</h2>
+        
+        <div class="grid gap-6">
+          <article class="card p-7 md:p-10 flex flex-col md:flex-row md:justify-between items-start md:items-center gap-7 cursor-pointer group" data-project="esiee">
+            <div class="flex-1">
+              <div class="flex items-center gap-4 mb-2">
+                <h3 class="font-bold text-2xl text-[var(--navy)] group-hover:text-[var(--petrol)] transition-colors">ESIEE Paris</h3>
+                <span class="text-xs font-semibold px-2.5 py-1 bg-[var(--soft)] text-[var(--petrol)] rounded-md border border-[var(--line)]">View Coursework ↗</span>
+              </div>
+              <p class="font-semibold text-lg mb-3 text-[var(--petrol)]">Master's in Industrial Engineering</p>
+              <p class="body-copy">Master's-level engineering degree with focus on process optimization, data analysis, and quality management.</p>
+            </div>
+            <p class="fine font-semibold whitespace-nowrap">2024 – 2027</p>
+          </article>
+
+          <article class="card p-7 md:p-10 flex flex-col md:flex-row md:justify-between gap-7">
+            <div>
+              <h3 class="font-bold text-2xl mb-2 text-[var(--navy)]">Lycée Albert Schweitzer</h3>
+              <p class="font-semibold text-lg mb-4 text-[var(--petrol)]">Classe Préparatoire aux Grandes Écoles</p>
+              <p class="body-copy">Intensive 2-year undergraduate program in Mathematics, Physics, and Engineering Sciences allowing integration into an engineering school following competitive exams.</p>
+            </div>
+            <p class="fine">2022 – 2024</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Get to Know Me Section -->
+    <section id="get-to-know-me" class="section rule">
+      <div class="shell">
+        <p class="eyebrow mb-3">06 / GET TO KNOW ME</p>
+        <h2 class="section-title mb-4">Beyond Engineering.</h2>
+        <p class="body-copy mb-12 max-w-2xl">A glimpse into what inspires me, what I read, watch, and love doing when I'm not at work.</p>
+        
+        <div class="grid gap-6 md:grid-cols-3">
+          <!-- Current Reads -->
+          <article class="card p-7 flex flex-col justify-between cursor-pointer group" data-project="reads">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl">📚</span>
+                  <h3 class="font-bold text-xl text-[var(--navy)] group-hover:text-[var(--petrol)] transition-colors">Current Reads</h3>
+                </div>
+                <span class="text-xs font-semibold px-2 py-1 bg-[var(--soft)] text-[var(--petrol)] rounded border border-[var(--line)]">Read more ↗</span>
+              </div>
+              <ul class="space-y-3 body-copy text-sm">
+                <li class="border-b border-[var(--line)] pb-2">
+                  <strong class="text-[var(--navy)] block">The Art of War (Sun Tzu)</strong>
+                  <span class="text-xs text-slate-500">Strategy, planning &amp; decision-making.</span>
+                </li>
+                <li class="border-b border-[var(--line)] pb-2">
+                  <strong class="text-[var(--navy)] block">Murder on the Orient Express</strong>
+                  <span class="text-xs text-slate-500">Agatha Christie — Logical deduction &amp; mysteries.</span>
+                </li>
+                <li>
+                  <strong class="text-[var(--navy)] block">The Love Hypothesis</strong>
+                  <span class="text-xs text-slate-500">Ali Hazelwood — Contemporary STEM romance.</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Movies & Inspirations -->
+          <article class="card p-7 flex flex-col justify-between cursor-pointer group" data-project="media">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl">🎬</span>
+                  <h3 class="font-bold text-xl text-[var(--navy)] group-hover:text-[var(--petrol)] transition-colors">Fav Movies &amp; Media</h3>
+                </div>
+                <span class="text-xs font-semibold px-2 py-1 bg-[var(--soft)] text-[var(--petrol)] rounded border border-[var(--line)]">Read more ↗</span>
+              </div>
+              <ul class="space-y-3 body-copy text-sm">
+                <li class="border-b border-[var(--line)] pb-2">
+                  <strong class="text-[var(--navy)] block">Favorite Movie: Pride and Prejudice</strong>
+                  <span class="text-xs text-slate-500">Timeless storytelling, aesthetics &amp; character depth.</span>
+                </li>
+                <li class="border-b border-[var(--line)] pb-2">
+                  <strong class="text-[var(--navy)] block">Favorite Series: Young Sheldon</strong>
+                  <span class="text-xs text-slate-500">Witty humor, intelligence &amp; family dynamics.</span>
+                </li>
+                <li>
+                  <strong class="text-[var(--navy)] block">Favorite Doc: Behind the Attraction</strong>
+                  <span class="text-xs text-slate-500">The engineering &amp; magic behind theme park icons.</span>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Passions & Interests -->
+          <article class="card p-7 flex flex-col justify-between cursor-pointer group" data-project="passions">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl">✨</span>
+                  <h3 class="font-bold text-xl text-[var(--navy)] group-hover:text-[var(--petrol)] transition-colors">Passions &amp; Interests</h3>
+                </div>
+                <span class="text-xs font-semibold px-2 py-1 bg-[var(--soft)] text-[var(--petrol)] rounded border border-[var(--line)]">Read more ↗</span>
+              </div>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="tag">Theme Parks</span>
+                <span class="tag">French Baking</span>
+                <span class="tag">History &amp; Travel</span>
+                <span class="tag">Photography &amp; Video</span>
+              </div>
+              <p class="body-copy text-sm mt-2">
+                Discovering parks worldwide, mastering French pastry precision, capturing moments, and exploring world cultures.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section rule">
+      <div class="shell grid gap-12 lg:grid-cols-2">
+        <div>
+          <p class="eyebrow mb-3">07 / Contact</p>
+          <h2 class="section-title mb-6">Let's Connect.</h2>
+          <p class="body-copy mb-4">
+            I am always open to discussing opportunities.
+          </p>
+          <p class="body-copy">
+            Feel free to reach out via email or connect with me directly on LinkedIn.
+          </p>
+        </div>
+        <div class="card p-8 space-y-5">
+          <div>
+            <label class="block font-semibold mb-2 text-sm" for="email-val">Email Address</label>
+            <input id="email-val" class="field" type="email" placeholder="justine.durand@disney.com" readonly value="justine.durand@disney.com">
+          </div>
+          <div>
+            <label class="block font-semibold mb-2 text-sm">LinkedIn Profile</label>
+            <a href="https://www.linkedin.com/in/justine-durand" target="_blank" rel="noopener noreferrer" class="action action-light w-full">linkedin.com/in/justine-durand ↗</a>
+          </div>
+          <a href="mailto:justine.durand@disney.com" class="action action-dark w-full">Send an Email ✉</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Case Study View Overlay -->
+  <main id="case-view" class="w-full" hidden>
+    <div class="shell section">
+      <button id="case-back" type="button" class="action action-light mb-14">← Back to Overview</button>
+      
+      <!-- CASE STUDY 1: Disneyland Paris -->
+      <div id="case-1" class="case-panel" hidden>
+        <p class="eyebrow mb-3">Disneyland Paris | Supplier Quality &amp; Performance Analytics</p>
+        <h1 class="section-title mb-4">Supplier Performance Dashboard</h1>
+        <p class="text-sm font-semibold text-[var(--petrol)] mb-8">Power BI · Data Analytics · KPI Development · Performance Management</p>
+        
+        <div class="mb-12 rounded-xl overflow-hidden border border-[var(--line)] bg-[var(--soft)]">
+          <img src="dashboardReporting.png" alt="Supplier Performance Dashboard" class="w-full h-auto object-cover max-h-[350px]">
+        </div>
+
+        <div class="space-y-10 max-w-4xl">
+          <section>
+            <h2 class="font-bold text-2xl mb-3 text-[var(--navy)]">Overview</h2>
+            <p class="body-copy">
+              Development and continuous improvement of a Power BI dashboard designed to monitor supplier performance and support data-driven decision-making.<br>
+              The project focuses on transforming quality and delivery information into clear, actionable insights that help teams identify trends, assess performance, and prioritize improvement opportunities.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-bold text-2xl mb-3 text-[var(--navy)]">Challenge</h2>
+            <p class="body-copy">
+              Supplier performance monitoring involves information from different sources, making it challenging to maintain consistent indicators and obtain a comprehensive view of supplier performance.<br>
+              The objective was to improve data visibility, reliability, and accessibility while providing teams with a practical tool to support performance monitoring and continuous improvement.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-bold text-2xl mb-3 text-[var(--navy)]">Approach</h2>
+            <ul class="list-disc pl-5 space-y-2 body-copy">
+              <li><strong>Data Consolidation:</strong> Organized and structured information from different sources to create a consistent reporting environment.</li>
+              <li><strong>KPI Development:</strong> Developed and refined performance indicators related to supplier quality and delivery.</li>
+              <li><strong>Dashboard Design:</strong> Created interactive Power BI visualizations to facilitate performance analysis and identify trends.</li>
+              <li><strong>Cross-Functional Collaboration:</strong> Worked with different departments to understand reporting needs and ensure the dashboard supported operational decision-making.</li>
+              <li><strong>Continuous Improvement:</strong> Updated reporting tools and analytical views based on user feedback and evolving business requirements.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="font-bold text-2xl mb-3 text-[var(--navy)]">Outcome</h2>
+            <p class="body-copy">
+              The dashboard supports a more structured approach to supplier performance monitoring by making relevant indicators easier to access, interpret, and discuss.<br>
+              It also contributes to cross-functional collaboration by providing a shared analytical foundation for identifying improvement priorities and supporting follow-up actions.
+            </p>
+          </section>
+
+          <section class="pt-4 border-t border-[var(--line)]">
+            <h3 class="font-bold text-lg mb-3 text-[var(--navy)]">Skills Demonstrated</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Power BI</span>
+              <span class="tag">Data Visualization</span>
+              <span class="tag">Data Modeling</span>
+              <span class="tag">KPI Development</span>
+              <span class="tag">Data Quality</span>
+              <span class="tag">Stakeholder Collaboration</span>
+              <span class="tag">Continuous Improvement</span>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- CASE STUDY 2: Walt Disney World -->
+      <div id="case-2" class="case-panel" hidden>
+        <p class="eyebrow mb-3">Walt Disney World | Quality Assurance &amp; Data Analytics</p>
+        <h1 class="section-title mb-4">Quality Data Integration &amp; Vendor Scorecard</h1>
+        <p class="text-sm font-semibold text-[var(--petrol)] mb-8">Power BI · Data Integration · Data Quality · Performance Reporting</p>
+        
+        <div class="mb-12 rounded-xl overflow-hidden border border-[var(--line)] bg-[var(--soft)]">
+          <img src="dashboardReporting.png" alt="Vendor Scorecard Dashboard" class="w-full h-auto object-cover max-h-[350px]">
+        </div>
+
+        <div class="space-y-10 max-w-4xl">
+          <section>
+            <h2 class="font-bold text-2xl mb-3 text-[var(--navy)]">Overview</h2>
+            <p class="body-copy">
+              During a 12-week international internship at Walt Disney World in Florida, I worked on a data analytics project focused on improving the visibility and interpretation of supplier quality information.<br>
+              The project involved developing a Power BI reporting solution to bring together information from different operational sources and support a more structured approach to performance analysis.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-bold text-2xl mb-3 text-[var(--navy)]">Challenge</h2>
+            <p class="body-copy">
+              Quality and operational information was distributed across multiple systems, creating challenges related to data consistency, completeness, and integration.<br>
+              Differences in data structures and missing information made it difficult to establish reliable relationships between datasets and develop meaningful performance indicators.<br>
+              The objective was to explore how existing information could be transformed into a more accessible and useful reporting solution.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-bold text-2xl mb-3 text-[var(--navy)]">Approach</h2>
+            <ul class="list-disc pl-5 space-y-2 body-copy">
+              <li><strong>Process Understanding:</strong> Studied existing quality reporting practices and identified opportunities for improving data accessibility.</li>
+              <li><strong>Data Integration:</strong> Worked on combining information from different operational datasets into a structured analytical environment.</li>
+              <li><strong>Data Quality Assessment:</strong> Investigated missing information, inconsistent formats, and data relationships affecting reporting reliability.</li>
+              <li><strong>Dashboard Development:</strong> Developed Power BI reporting views to support quality and supplier performance analysis.</li>
+              <li><strong>Cross-Functional Collaboration:</strong> Worked with Quality Assurance and technical teams to understand reporting needs, discuss limitations, and refine the analytical approach.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="font-bold text-2xl mb-3 text-[var(--navy)]">Outcome</h2>
+            <p class="body-copy">
+              The project contributed to the development of a structured Vendor Scorecard approach, providing a foundation for reviewing supplier-related quality information.<br>
+              It also highlighted opportunities to improve data consistency and reporting reliability while making the limitations of available information more visible.<br>
+              Beyond the technical work, the experience strengthened my ability to adapt engineering and analytical methods to a new international environment.
+            </p>
+          </section>
+
+          <section class="pt-4 border-t border-[var(--line)]">
+            <h3 class="font-bold text-lg mb-3 text-[var(--navy)]">Skills Demonstrated</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Power BI</span>
+              <span class="tag">Data Integration</span>
+              <span class="tag">Data Cleaning</span>
+              <span class="tag">Data Quality</span>
+              <span class="tag">Business Intelligence</span>
+              <span class="tag">Problem Solving</span>
+              <span class="tag">Cross-Functional Collaboration</span>
+              <span class="tag">Adaptability</span>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- CASE STUDY 3: Workflow Automation -->
+      <div id="case-3" class="case-panel" hidden>
+        <p class="eyebrow mb-3">Disneyland Paris | Process Improvement &amp; Digitalization</p>
+        <h1 class="section-title mb-4">Supplier Quality Workflow Automation</h1>
+        <p class="text-sm font-semibold text-[var(--petrol)] mb-8">Smartsheet · SharePoint · Power Automate · Project Management</p>
+        
+        <div class="mb-12 rounded-xl overflow-hidden border border-[var(--line)] bg-[var(--soft)]">
+          <img src="Automation.jpeg" alt="Supplier Quality Workflow Automation" class="w-full h-auto object-cover max-h-[350px]">
+        </div>
+
+        <div class="space-y-10 max-w-4xl">
+          <section>
+            <h2 class="font-bold text-2xl mb-3 text-[var(--navy)]">Overview</h2>
+            <p class="body-copy">
+              Development and improvement of digital tools designed to streamline Supplier Quality Assurance processes, particularly the management of supplier deviation requests and corrective actions.<br>
+              The project focused on transforming manual administrative activities into more structured, standardized, and accessible workflows, supporting better coordination between stakeholders.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-bold text-2xl mb-3 text-[var(--navy)]">Challenge</h2>
+            <p class="body-copy">
+              Supplier Quality Assurance activities involve multiple requests, approvals, and follow-up actions requiring coordination between different teams.<br>
+              Managing these activities through fragmented or manual processes can create administrative complexity, inconsistent information, and limited visibility into request status.<br>
+              The objective was to develop a more efficient and user-friendly approach to managing quality-related workflows while improving traceability and standardization.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-bold text-2xl mb-3 text-[var(--navy)]">Approach</h2>
+            <ul class="list-disc pl-5 space-y-2 body-copy">
+              <li><strong>Needs Assessment:</strong> Collaborated with stakeholders to understand existing processes, identify challenges, and translate operational requirements into functional specifications.</li>
+              <li><strong>Workflow Design:</strong> Developed standardized digital forms and structured tracking systems to organize requests, responsibilities, and follow-up actions.</li>
+              <li><strong>Process Automation:</strong> Implemented automated notifications and workflow steps using Smartsheet and Power Automate to reduce repetitive administrative activities.</li>
+              <li><strong>Testing &amp; Optimization:</strong> Worked with users to test the solutions, gather feedback, and refine functionality based on operational needs.</li>
+              <li><strong>Documentation &amp; Standardization:</strong> Contributed to documenting procedures and improving consistency across quality management activities.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="font-bold text-2xl mb-3 text-[var(--navy)]">Outcome</h2>
+            <p class="body-copy">
+              The digital solutions contributed to more structured and consistent management of supplier quality requests.<br>
+              By centralizing information and automating selected administrative steps, the project helped improve process visibility, traceability, and coordination between stakeholders.<br>
+              It also demonstrated how digital tools can support continuous improvement by making existing processes easier to manage and maintain.
+            </p>
+          </section>
+
+          <section class="pt-4 border-t border-[var(--line)]">
+            <h3 class="font-bold text-lg mb-3 text-[var(--navy)]">Skills Demonstrated</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Process Improvement</span>
+              <span class="tag">Workflow Automation</span>
+              <span class="tag">Smartsheet</span>
+              <span class="tag">Power Automate</span>
+              <span class="tag">SharePoint</span>
+              <span class="tag">Functional Specifications</span>
+              <span class="tag">Project Management</span>
+              <span class="tag">Stakeholder Collaboration</span>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- CASE STUDY 4: Root Cause Analysis -->
+      <div id="case-4" class="case-panel" hidden>
+        <p class="eyebrow mb-3">Disneyland Paris | Quality Engineering &amp; Technical Investigation</p>
+        <h1 class="section-title mb-4">Root Cause Analysis &amp; 8D Problem Solving</h1>
+        <p class="text-sm font-semibold text-[var(--petrol)] mb-8">8D Methodology · Root Cause Analysis · Non-Conformity Management · Technical Collaboration</p>
+        
+        <div class="mb-12 rounded-xl overflow-hidden border border-[var(--line)] bg-[var(--soft)]">
+          <img src="8D.jpg" alt="Root Cause Analysis & 8D" class="w-full h-auto object-cover max-h-[350px]">
+        </div>
+
+        <div class="space-y-10 max-w-4xl">
+          <section>
+            <h2 class="font-bold text-2xl mb-3 text-[var(--navy)]">Overview</h2>
+            <p class="body-copy">
+              Participation in a structured quality investigation involving a complex technical non-conformity.<br>
+              Working alongside a Supplier Quality Engineer, I contributed to the investigation and follow-up process, gaining practical experience in systematic problem-solving and engineering-based quality management.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-bold text-2xl mb-3 text-[var(--navy)]">Challenge</h2>
+            <p class="body-copy">
+              Complex technical non-conformities require a structured investigation to understand the problem, evaluate available evidence, and identify potential contributing factors.<br>
+              These situations often involve collaboration between different technical stakeholders and require a rigorous approach to ensure that conclusions are supported by reliable information.<br>
+              The objective was to contribute to a methodical investigation process and support informed quality-related decisions.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-bold text-2xl mb-3 text-[var(--navy)]">Approach</h2>
+            <ul class="list-disc pl-5 space-y-2 body-copy">
+              <li><strong>Problem Understanding:</strong> Participated in reviewing the non-conformity and understanding its technical context.</li>
+              <li><strong>Structured Problem Solving:</strong> Contributed to investigation activities using principles of the 8D methodology.</li>
+              <li><strong>Technical Analysis:</strong> Supported discussions involving potential causes, available technical evidence, and investigation findings.</li>
+              <li><strong>Cross-Functional Collaboration:</strong> Worked alongside experienced quality and technical professionals to understand different perspectives and investigation requirements.</li>
+              <li><strong>Follow-Up &amp; Documentation:</strong> Contributed to the structured monitoring of investigation activities and related quality information.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="font-bold text-2xl mb-3 text-[var(--navy)]">Outcome</h2>
+            <p class="body-copy">
+              This experience strengthened my understanding of structured quality investigations and the importance of evidence-based problem-solving.<br>
+              It provided practical exposure to the application of 8D principles in a technical environment and reinforced the value of collaboration, analytical thinking, and rigorous documentation when addressing complex quality issues.
+            </p>
+          </section>
+
+          <section class="pt-4 border-t border-[var(--line)]">
+            <h3 class="font-bold text-lg mb-3 text-[var(--navy)]">Skills Demonstrated</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">8D Methodology</span>
+              <span class="tag">Root Cause Analysis</span>
+              <span class="tag">Quality Engineering</span>
+              <span class="tag">Non-Conformity Management</span>
+              <span class="tag">Analytical Thinking</span>
+              <span class="tag">Technical Collaboration</span>
+              <span class="tag">Problem Solving</span>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- CASE STUDY 5: Audit Standardization -->
+      <div id="case-5" class="case-panel" hidden>
+        <p class="eyebrow mb-3">Disneyland Paris | Supplier Quality &amp; Audit Management</p>
+        <h1 class="section-title mb-4">Supplier Audit Standardization</h1>
+        <p class="text-sm font-semibold text-[var(--petrol)] mb-8">Supplier Audits · SafetyCulture · Quality Management · Process Standardization</p>
+        
+        <div class="mb-12 rounded-xl overflow-hidden border border-[var(--line)] bg-[var(--soft)]">
+          <img src="Audit.jpg" alt="Supplier Audit Standardization" class="w-full h-auto object-cover max-h-[350px]">
+        </div>
+
+        <div class="space-y-10 max-w-4xl">
+          <section>
+            <h2 class="font-bold text-2xl mb-3 text-[var(--navy)]">Overview</h2>
+            <p class="body-copy">
+              Contribution to the development and standardization of supplier assessment and auditing practices within the Supplier Quality Assurance department.<br>
+              The project focused on improving the consistency of audit preparation, documentation, and follow-up activities through structured methodologies and digital tools.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-bold text-2xl mb-3 text-[var(--navy)]">Challenge</h2>
+            <p class="body-copy">
+              Supplier assessment is an essential part of maintaining quality standards and supporting long-term supplier performance.<br>
+              Auditing activities require clear evaluation methods, consistent documentation, and effective follow-up to ensure that observations can be translated into meaningful improvement actions.<br>
+              The objective was to support a more standardized and practical approach to supplier assessments throughout the supplier relationship.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-bold text-2xl mb-3 text-[var(--navy)]">Approach</h2>
+            <ul class="list-disc pl-5 space-y-2 body-copy">
+              <li><strong>Supplier Assessment:</strong> Participated in supplier evaluation and audit activities, contributing to the assessment of quality management practices and operational capabilities.</li>
+              <li><strong>Audit Standardization:</strong> Helped develop and improve standardized audit templates and assessment documentation to support consistency across evaluations.</li>
+              <li><strong>Digital Tool Development:</strong> Contributed to the creation of structured digital audit forms using SafetyCulture to facilitate documentation and follow-up.</li>
+              <li><strong>Performance-Based Monitoring:</strong> Supported the use of supplier performance information to inform audit planning and monitoring activities.</li>
+              <li><strong>Continuous Improvement:</strong> Contributed to refining audit methods and documentation to better support operational needs and supplier follow-up.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="font-bold text-2xl mb-3 text-[var(--navy)]">Outcome</h2>
+            <p class="body-copy">
+              The standardized audit tools and methods contributed to a more consistent approach to supplier assessment and documentation.<br>
+              The project supported clearer recording of observations, improved organization of follow-up activities, and better alignment between supplier evaluations and ongoing quality monitoring.<br>
+              It also strengthened my understanding of supplier quality management throughout the supplier lifecycle, from initial assessment to continuous performance improvement.
+            </p>
+          </section>
+
+          <section class="pt-4 border-t border-[var(--line)]">
+            <h3 class="font-bold text-lg mb-3 text-[var(--navy)]">Skills Demonstrated</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Supplier Quality Assurance</span>
+              <span class="tag">Supplier Audits</span>
+              <span class="tag">SafetyCulture</span>
+              <span class="tag">Audit Standardization</span>
+              <span class="tag">Quality Management</span>
+              <span class="tag">Supplier Assessment</span>
+              <span class="tag">Documentation</span>
+              <span class="tag">Continuous Improvement</span>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- ACADEMIC DETAIL VIEW: ESIEE Paris -->
+      <div id="case-esiee" class="case-panel" hidden>
+        <div class="flex items-center gap-6 mb-6">
+          <img src="esiee.png" alt="ESIEE Paris Logo" class="h-14 w-auto object-contain">
+          <div>
+            <p class="eyebrow">Academic Curriculum &amp; Engineering Focus</p>
+            <h1 class="text-3xl font-bold text-[var(--navy)]">ESIEE Paris — Industrial Engineering</h1>
+          </div>
+        </div>
+        <p class="text-sm font-semibold text-[var(--petrol)] mb-8">2024–2027 · Master's-Level Engineering Program · Engineering Apprenticeship Program</p>
+
+        <div class="space-y-10 max-w-4xl">
+          <section>
+            <p class="body-copy">
+              My Industrial Engineering education at ESIEE Paris provides a multidisciplinary foundation combining engineering, mathematics, data analytics, operations management, and industrial technologies.<br>
+              Through technical coursework, practical assignments, and multidisciplinary projects, I have developed the analytical and problem-solving skills needed to understand complex industrial systems, optimize processes, and support engineering decisions.
+            </p>
+          </section>
+
+          <div class="grid gap-8 md:grid-cols-2">
+            <!-- 01 -->
+            <div class="p-6 bg-[var(--white)] rounded-xl border border-[var(--line)]">
+              <h3 class="font-bold text-lg text-[var(--navy)] mb-3">01 — Operations Research &amp; Production Optimization</h3>
+              <ul class="list-disc pl-5 space-y-1.5 body-copy text-sm mb-4">
+                <li><strong>Operations Research:</strong> Linear programming, simplex method, mathematical optimization, and resource allocation.</li>
+                <li><strong>Production Planning &amp; Scheduling:</strong> Production sequencing, capacity constraints, lot-sizing models, and optimization.</li>
+                <li><strong>Production Systems:</strong> Bottleneck identification, cycle time analysis, production flows, and capacity analysis.</li>
+                <li><strong>Inventory Management:</strong> Economic Order Quantity (EOQ), replenishment policies, inventory costs, and demand analysis.</li>
+              </ul>
+              <p class="fine"><strong>Tools:</strong> Google OR-Tools, Excel</p>
+            </div>
+
+            <!-- 02 -->
+            <div class="p-6 bg-[var(--white)] rounded-xl border border-[var(--line)]">
+              <h3 class="font-bold text-lg text-[var(--navy)] mb-3">02 — Data Analytics, Modeling &amp; Simulation</h3>
+              <ul class="list-disc pl-5 space-y-1.5 body-copy text-sm mb-4">
+                <li><strong>Data Analysis:</strong> Statistics, probability, data processing, and quantitative analysis.</li>
+                <li><strong>Discrete-Event Simulation:</strong> Industrial system modeling, queueing systems, and scenario analysis.</li>
+                <li><strong>Programming &amp; Algorithms:</strong> Computational problem-solving and mathematical modeling.</li>
+                <li><strong>Decision Support:</strong> Using quantitative methods to evaluate alternatives and operational constraints.</li>
+              </ul>
+              <p class="fine"><strong>Tools:</strong> Arena Simulation, Excel, OR-Tools</p>
+            </div>
+
+            <!-- 03 -->
+            <div class="p-6 bg-[var(--white)] rounded-xl border border-[var(--line)]">
+              <h3 class="font-bold text-lg text-[var(--navy)] mb-3">03 — Engineering Systems &amp; Industry 4.0</h3>
+              <ul class="list-disc pl-5 space-y-1.5 body-copy text-sm mb-4">
+                <li><strong>CAD/CAM:</strong> Computer-aided design and technical drawing.</li>
+                <li><strong>Maintenance &amp; Reliability:</strong> Industrial equipment reliability and failure analysis fundamentals.</li>
+                <li><strong>Smart Manufacturing:</strong> Connected industrial systems, sensors, IoT, and cloud technologies.</li>
+                <li><strong>Industrial AI:</strong> Signal processing, wavelet scattering, and LSTM neural networks applied to equipment fault detection.</li>
+              </ul>
+              <p class="fine"><strong>Tools:</strong> CATIA, MATLAB</p>
+            </div>
+
+            <!-- 04 -->
+            <div class="p-6 bg-[var(--white)] rounded-xl border border-[var(--line)]">
+              <h3 class="font-bold text-lg text-[var(--navy)] mb-3">04 — Quality Engineering &amp; Continuous Improvement</h3>
+              <ul class="list-disc pl-5 space-y-1.5 body-copy text-sm mb-4">
+                <li><strong>Quality Management:</strong> Structured problem-solving and quality management principles.</li>
+                <li><strong>Process Improvement:</strong> Identifying constraints, evaluating solutions, and defining improvement opportunities.</li>
+                <li><strong>Action Planning:</strong> Prioritization, responsibility assignment, and follow-up planning.</li>
+                <li><strong>Analytical Thinking:</strong> Applying systematic approaches to complex technical and organizational challenges.</li>
+              </ul>
+            </div>
+
+            <!-- 05 -->
+            <div class="p-6 bg-[var(--white)] rounded-xl border border-[var(--line)] md:col-span-2">
+              <h3 class="font-bold text-lg text-[var(--navy)] mb-3">05 — Project Management &amp; Business Performance</h3>
+              <ul class="list-disc pl-5 space-y-1.5 body-copy text-sm">
+                <li><strong>Project Management:</strong> Project organization, coordination, and multidisciplinary teamwork.</li>
+                <li><strong>Cost &amp; Financial Analysis:</strong> Understanding operational costs and business performance.</li>
+                <li><strong>Innovation Management:</strong> Technological innovation and engineering project development.</li>
+                <li><strong>Professional Skills:</strong> Technical communication, collaboration, presentations, and decision-making.</li>
+              </ul>
+            </div>
+          </div>
+
+          <section class="p-6 bg-[var(--soft)] rounded-xl border border-[var(--line)]">
+            <h3 class="font-bold text-xl text-[var(--navy)] mb-3">Engineering Mindset</h3>
+            <p class="body-copy mb-4">
+              My education has taught me to approach engineering challenges systematically: understand the system, analyze the data, identify constraints, develop solutions, and evaluate their operational impact.<br>
+              Combined with my apprenticeship experience at Disneyland Paris and my internship at Walt Disney World, this academic foundation supports my interest in Industrial Engineering, Quality Engineering, Operations Research, Engineering Analytics, and Continuous Improvement.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Google OR-Tools</span>
+              <span class="tag">Arena Simulation</span>
+              <span class="tag">Excel</span>
+              <span class="tag">MATLAB</span>
+              <span class="tag">CATIA</span>
+              <span class="tag">Operations Research</span>
+              <span class="tag">Production Planning</span>
+              <span class="tag">Inventory Management</span>
+              <span class="tag">Quality Management</span>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- GET TO KNOW ME DETAIL 1: Current Reads -->
+      <div id="case-reads" class="case-panel" hidden>
+        <p class="eyebrow mb-3">Personal Bookshelf &amp; Inspirations</p>
+        <h1 class="section-title mb-4">📚 Current Reads</h1>
+        <p class="text-sm font-semibold text-[var(--petrol)] mb-8">Strategy · Logic &amp; Mysteries · Contemporary STEM Romance</p>
+
+        <div class="space-y-6 max-w-4xl">
+          <div class="p-6 bg-white rounded-xl border border-[var(--line)]">
+            <h3 class="font-bold text-lg text-[var(--navy)] mb-1">The Art of War (Sun Tzu)</h3>
+            <p class="body-copy text-sm">
+              I read Sun Tzu because its principles of strategy, planning, adaptability, and understanding systems go far beyond military tactics. It offers timeless insights into anticipation, resource management, and strategic decision-making in complex environments.
+            </p>
+          </div>
+
+          <div class="p-6 bg-white rounded-xl border border-[var(--line)]">
+            <h3 class="font-bold text-lg text-[var(--navy)] mb-1">Murder on the Orient Express (Agatha Christie)</h3>
+            <p class="body-copy text-sm">
+              I enjoy classic mystery novels for the pure pleasure of logical deduction, attention to minute details, and methodical problem-solving — very similar to investigating root causes in engineering non-conformities!
+            </p>
+          </div>
+
+          <div class="p-6 bg-white rounded-xl border border-[var(--line)]">
+            <h3 class="font-bold text-lg text-[var(--navy)] mb-1">The Love Hypothesis (Ali Hazelwood)</h3>
+            <p class="body-copy text-sm">
+              A fun, witty contemporary romance set in STEM academia. It’s my favorite lighthearted read to unwind while staying connected to the academic/scientific universe.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- GET TO KNOW ME DETAIL 2: Fav Movies & Media -->
+      <div id="case-media" class="case-panel" hidden>
+        <p class="eyebrow mb-3">Cinema, TV &amp; Documentaries</p>
+        <h1 class="section-title mb-4">🎬 Fav Movies &amp; Media</h1>
+        <p class="text-sm font-semibold text-[var(--petrol)] mb-8">Storytelling · Engineering Behind the Magic · Intelligence &amp; Aesthetics</p>
+
+        <div class="space-y-6 max-w-4xl">
+          <div class="p-6 bg-white rounded-xl border border-[var(--line)]">
+            <span class="text-xs font-bold text-[var(--petrol)] uppercase tracking-wider block mb-1">Favorite Movie</span>
+            <h3 class="font-bold text-xl text-[var(--navy)] mb-2">Pride and Prejudice</h3>
+            <p class="body-copy text-sm">
+              My absolute favorite movie. I love the breathtaking cinematography, the subtle character dynamics, the soundtrack, and the timeless elegance of the narrative. It’s a film I can rewatch endlessly for its emotional depth and aesthetic perfection.
+            </p>
+          </div>
+
+          <div class="p-6 bg-white rounded-xl border border-[var(--line)]">
+            <span class="text-xs font-bold text-[var(--petrol)] uppercase tracking-wider block mb-1">Favorite Series</span>
+            <h3 class="font-bold text-xl text-[var(--navy)] mb-2">Young Sheldon</h3>
+            <p class="body-copy text-sm">
+              My go-to TV show. I love the balance between Sheldon’s brilliant analytical mind and the heartwarming, humorous realities of family life. It’s witty, comforting, and constantly celebrates curiosity and science.
+            </p>
+          </div>
+
+          <div class="p-6 bg-white rounded-xl border border-[var(--line)]">
+            <span class="text-xs font-bold text-[var(--petrol)] uppercase tracking-wider block mb-1">Favorite Documentary</span>
+            <h3 class="font-bold text-xl text-[var(--navy)] mb-2">Behind the Attraction</h3>
+            <p class="body-copy text-sm">
+              As an industrial engineer passionate about theme parks, this documentary series is pure gold. It unveils the technical ingenuity, mechanical challenges, Imagineering heritage, and operational systems that turn complex engineering into unforgettable magic.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- GET TO KNOW ME DETAIL 3: Passions & Interests -->
+      <div id="case-passions" class="case-panel" hidden>
+        <p class="eyebrow mb-3">Hobbies &amp; Personal Interests</p>
+        <h1 class="section-title mb-4">✨ Passions &amp; Interests</h1>
+        <p class="text-sm font-semibold text-[var(--petrol)] mb-8">Theme Parks · French Pastry · Travel &amp; Cultures · Photography &amp; Video Production</p>
+
+        <div class="space-y-6 max-w-4xl">
+          <div class="p-6 bg-white rounded-xl border border-[var(--line)]">
+            <h3 class="font-bold text-xl text-[var(--navy)] mb-2">🎢 Theme Park Industry &amp; Exploration</h3>
+            <p class="body-copy text-sm mb-3">
+              Theme parks are my ultimate passion because they represent the perfect convergence of storytelling, logistics, safety, and cutting-edge engineering. I love experiencing and analyzing park operations firsthand across major international destinations:
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Walt Disney World (Florida)</span>
+              <span class="tag">Universal Orlando Resort</span>
+              <span class="tag">Disneyland Paris</span>
+              <span class="tag">Futuroscope</span>
+              <span class="tag">Parc Astérix</span>
+              <span class="tag">PortAventura World</span>
+            </div>
+          </div>
+
+          <div class="p-6 bg-white rounded-xl border border-[var(--line)]">
+            <h3 class="font-bold text-xl text-[var(--navy)] mb-2">🧁 French Pâtisserie (Baking)</h3>
+            <p class="body-copy text-sm">
+              Baking traditional French pastry is one of my favorite creative outlets. It is a deeply French art that mirrors engineering in many ways: it demands strict measurement accuracy, process discipline, thermal control, and meticulous attention to detail to achieve visual and taste perfection.
+            </p>
+          </div>
+
+          <div class="p-6 bg-white rounded-xl border border-[var(--line)]">
+            <h3 class="font-bold text-xl text-[var(--navy)] mb-2">🌍 History, Travel &amp; Culture</h3>
+            <p class="body-copy text-sm">
+              I am deeply curious about world history and exploring different cultures through travel. Understanding the historical context of places I visit gives me a broader perspective on modern society, architecture, and human behavior.
+            </p>
+          </div>
+
+          <div class="p-6 bg-white rounded-xl border border-[var(--line)]">
+            <h3 class="font-bold text-xl text-[var(--navy)] mb-2">📸 Photography, Video Direction &amp; Editing</h3>
+            <p class="body-copy text-sm">
+              I enjoy capturing moments, framing compositions, and telling visual stories through photography and video production. From shooting footage to assembling storylines and editing pacing, it combines artistic vision with technical software mastery.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="rule py-8">
+    <div class="shell flex justify-between text-sm text-slate-500">
+      <p>Justine Durand · Industrial Engineering</p>
+      <p>© 2026 — All rights reserved</p>
+    </div>
+  </footer>
+
+  <script>
+    const portfolio = document.getElementById('portfolio-view');
+    const caseView = document.getElementById('case-view');
+    const back = document.getElementById('case-back');
+    const menu = document.getElementById('mobile-menu');
+    const toggle = document.getElementById('menu-toggle');
+    let lastTrigger = null;
+
+    function closeMenu() {
+      menu.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    toggle.addEventListener('click', () => {
+      menu.hidden = !menu.hidden;
+      toggle.setAttribute('aria-expanded', String(!menu.hidden));
+    });
+
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+
+    function closeCase(restoreFocus = true) {
+      if (caseView.hidden) return;
+      caseView.hidden = true;
+      document.querySelectorAll('.case-panel').forEach(panel => panel.hidden = true);
+      portfolio.hidden = false;
+      if (lastTrigger) {
+        lastTrigger.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (restoreFocus) lastTrigger.focus({ preventScroll: true });
+      }
+    }
+
+    document.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => {
+      lastTrigger = button;
+      closeMenu();
+      portfolio.hidden = true;
+      document.getElementById('case-' + button.dataset.project).hidden = false;
+      caseView.hidden = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      back.focus({ preventScroll: true });
+    }));
+
+    back.addEventListener('click', () => closeCase());
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        if (!caseView.hidden) closeCase();
+        else if (!menu.hidden) { closeMenu(); toggle.focus(); }
+      }
+    });
+
+    document.querySelectorAll('header a[href^="#"]').forEach(link => link.addEventListener('click', () => {
+      if (!caseView.hidden) {
+        caseView.hidden = true;
+        document.querySelectorAll('.case-panel').forEach(panel => panel.hidden = true);
+        portfolio.hidden = false;
+      }
+      closeMenu();
+    }));
+  </script>
+</body>
+</html>
